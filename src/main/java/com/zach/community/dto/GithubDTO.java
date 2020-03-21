@@ -2,16 +2,19 @@ package com.zach.community.dto;
 
 /**
  * @author zach - 吸柒
+ * Github授权参数类
  */
 public class GithubDTO {
 
-    private String client_id = "dee2f111c143d951cf0e";
-    private String client_secret = "349c7917b02e766dcf898c40bcaa79b3e5b17311";
+    private String client_id;
+    private String client_secret;
     private String code;
     private String redirect_uri;
     private String state;
 
-    public GithubDTO(String code) {
+    public GithubDTO(String client_id, String client_secret, String code) {
+        this.client_id = client_id;
+        this.client_secret = client_secret;
         this.code = code;
     }
 

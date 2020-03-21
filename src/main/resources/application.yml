@@ -6,7 +6,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/zach_community
 
-
 #   Druid数据源其他配置
 #    initialSize: 5
 #    minIdle: 5
@@ -24,3 +23,4 @@ spring:
 #    maxPoolPreparedStatementPerConnectionSize: 20
 #    useGlobalDataSourceStat: true
 #    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
