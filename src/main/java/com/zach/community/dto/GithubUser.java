@@ -2,12 +2,13 @@ package com.zach.community.dto;
 
 /**
  * @author zach - 吸柒
+ * Github用户信息封装类
  */
 public class GithubUser {
 
-    private Long id;
-    private String name;
-    private String bio;
+    private Long id; // Github ID
+    private String name; // 授权用户名称
+    private String bio; // 授权用户简介
 
     public Long getId() {
         return id;

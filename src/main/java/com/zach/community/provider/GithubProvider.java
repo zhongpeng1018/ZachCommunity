@@ -12,6 +12,7 @@ import java.util.Map;
 
 /**
  * @author zach - 吸柒
+ * Github提供类：主要用于获得access_token 和 GithubUser信息
  */
 @Component
 public class GithubProvider {
@@ -20,14 +21,15 @@ public class GithubProvider {
 
     private String userUrl = "https://api.github.com/user";
 
+    //使用OkHttp进行模拟浏览器请求
     private OkHttpClient client = new OkHttpClient();
 
 
     /**
      * 获取 access_token
      *
-     * @param githubDTO
-     * @return
+     * @param githubDTO 需要携带的param
+     * @return access_token
      */
     public String getAccessToken(GithubDTO githubDTO) {
 
@@ -57,6 +59,11 @@ public class GithubProvider {
         return null;
     }
 
+    /**
+     * 获取Github的用户信息
+     * @param accessToken
+     * @return GithubUser
+     */
     public GithubUser getGithubUser(String accessToken) {
 
         Request request = new Request.Builder()
