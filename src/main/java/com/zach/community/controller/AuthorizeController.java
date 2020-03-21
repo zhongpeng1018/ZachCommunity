@@ -49,15 +49,22 @@ public class AuthorizeController {
         if (githubUser != null) {
             if (userMapper.findByAccountId(githubUser.getId().toString())==null){
                 User user = new User();
+                String token = UUID.randomUUID().toString();
                 user.setName(githubUser.getName());
                 user.setAccountId(githubUser.getId().toString());
-                user.setToken(UUID.randomUUID().toString());
+                user.setToken(token);
                 user.setCreateTime(new Date());
                 user.setUpdateTime(user.getCreateTime());
                 userMapper.addUser(user);
+                //给浏览器返回一个自定义Cookie
+                Cookie cookie = new Cookie("token", token);
+                response.addCookie(cookie);
+            }else {
+                User user = userMapper.findByAccountId(githubUser.getId().toString());
+                //给浏览器返回一个自定义Cookie
+                Cookie cookie = new Cookie("token", user.getToken());
+                response.addCookie(cookie);
             }
-            // 存入session
-            request.getSession().setAttribute("githubUser", githubUser);
         }
         return "redirect:/";
     }
