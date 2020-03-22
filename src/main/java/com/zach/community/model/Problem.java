@@ -7,6 +7,8 @@ import java.util.Date;
  */
 public class Problem {
 
+    private Integer id;
+
     private String title;
 
     private String category;
@@ -26,6 +28,14 @@ public class Problem {
                 ", userName='" + userName + '\'' +
                 ", createTime=" + createTime +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Date getCreateTime() {

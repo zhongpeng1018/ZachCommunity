@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 导入bootstrap的CSS样式 -->
-    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}">
-    <script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-theme.min.css}">
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
     <!-- 顶部栏 -->
@@ -16,14 +16,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-8">
-                <ul class="list-group">
-                    <li class="list-group-item" th:each="problem:${problems}">
-                        <div>
-                            <a th:href="@{/detail/}+${problem.id}">[[${problem.title}]]</a>
-                            [[${problem.content}]]
-                        </div>
-                    </li>
-                </ul>
+                <h2 th:text="${problem.getTitle()}"></h2>
+                <p>[[ ${problem.getContent()} ]]</p>
             </div>
             <div class="col-xs-6 col-md-4">占位符</div>
         </div>
@@ -31,6 +25,4 @@
 
 
 </body>
-
-
 </html>

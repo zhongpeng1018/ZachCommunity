@@ -19,5 +19,8 @@ public interface ProblemMapper {
     @Insert("insert into problem (title,category,content,user_name,create_time) values (#{title},#{category},#{content},#{userName},#{createTime})")
     void insert(Problem problem);
 
+    @Select("select * from problem where id = #{id}")
+    Problem findById(Integer id);
+
 
 }
