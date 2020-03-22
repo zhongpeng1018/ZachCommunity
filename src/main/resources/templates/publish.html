@@ -15,20 +15,19 @@
 
 <div class="container">
     <div class="row">
-        <h3>发布问题</h3>
+        <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>发布问题</h3>
+        <hr>
     </div>
     <div class="row">
         <div class="col-xs-12 col-lg-8">
             <form class="form-horizontal" th:action="@{/publish}" method="post">
                 <div class="form-group">
-
                     <div class="col-sm-12">
-                        问题标题（简单扼要）:
-                        <p></p>
+                        <label for="title">问题标题（简单扼要）:</label>
                     </div>
                     <div class="col-sm-9">
                         <input class="form-control" name="userName" style="display: none" type="text" th:value="${session.user.getName()}">
-                        <input type="text" class="form-control" name="title" placeholder="问题标题...">
+                        <input id="title" type="text" class="form-control" name="title" placeholder="问题标题...">
                     </div>
                     <div class="col-sm-3">
                         <select class="form-control" name="category">
@@ -39,22 +38,18 @@
                         </select>
                     </div>
                     <div class="col-sm-12">
-                        <p></p>
-                        <p></p>
-                        问题补充 (必填，请参照右侧提示):
-                        <p></p>
-                    </div>
-                    <div class="col-sm-12">
-                        <textarea class="form-control" rows="10" name="content"></textarea>
+                        <label for="content">问题补充 (必填，请参照右侧提示):</label>
+                        <textarea id="content" class="form-control" rows="10" name="content"></textarea>
                     </div>
                 </div>
-
                 <button type="submit" class="btn btn-success pull-right">确认发起</button>
             </form>
         </div>
 
         <div class="col-xs-12 col-lg-4">
-            预留提示位置。
+            问题发起指南<br>
+            • 问题标题: 请用精简的语言描述您发布的问题，不超过25字<br>
+            • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料：<br>
         </div>
     </div>
 </div>
