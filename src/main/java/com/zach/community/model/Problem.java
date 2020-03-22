@@ -1,5 +1,7 @@
 package com.zach.community.model;
 
+import java.util.Date;
+
 /**
  * @author zach - 吸柒
  */
@@ -13,6 +15,8 @@ public class Problem {
 
     private String userName;
 
+    private Date createTime;
+
     @Override
     public String toString() {
         return "Problem{" +
@@ -20,7 +24,16 @@ public class Problem {
                 ", category='" + category + '\'' +
                 ", content='" + content + '\'' +
                 ", userName='" + userName + '\'' +
+                ", createTime=" + createTime +
                 '}';
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public String getUserName() {
