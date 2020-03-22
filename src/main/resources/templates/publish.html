@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Zach的技术社区</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 导入bootstrap的CSS样式 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- 顶部栏 -->
+<div th:replace="commons/common::topbar"></div>
+
+<div class="container">
+    <div class="row">
+        <h3>发布问题</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-lg-8">
+            <form class="form-horizontal" th:action="@{/publish}" method="post">
+                <div class="form-group">
+
+                    <div class="col-sm-12">
+                        问题标题（简单扼要）:
+                        <p></p>
+                    </div>
+                    <div class="col-sm-9">
+                        <input class="form-control" name="userName" style="display: none" type="text" th:value="${session.user.getName()}">
+                        <input type="text" class="form-control" name="title" placeholder="问题标题...">
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" name="category">
+                            <option selected>选择分类</option>
+                            <option>java</option>
+                            <option>大数据</option>
+                            <option>其他</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <p></p>
+                        <p></p>
+                        问题补充 (必填，请参照右侧提示):
+                        <p></p>
+                    </div>
+                    <div class="col-sm-12">
+                        <textarea class="form-control" rows="10" name="content"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success pull-right">确认发起</button>
+            </form>
+        </div>
+
+        <div class="col-xs-12 col-lg-4">
+            预留提示位置。
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
